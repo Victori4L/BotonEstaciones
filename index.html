@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intercambio de Imágenes - Estaciones del Año</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .contenedor {
+            display: flex;
+            gap: 20px;
+        }
+        .imagen-grande {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .imagenes-pequenas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .imagenes-pequenas img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <img id="imagenGrande" class="imagen-grande" src="https://s1.significados.com/foto/verano-intro.jpg?class=article" alt="Verano">
+        <div class="imagenes-pequenas">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpYcHXVnALU77TsJwIimJxVJF75zRRIAI0dw&s" onclick="cambiarImagen(this)" alt="Otoño">
+            <img src="https://t1.uc.ltmcdn.com/es/posts/9/3/5/diferencia_entre_equinoccio_y_solsticio_49539_0_600.jpg" onclick="cambiarImagen(this)" alt="Invierno">
+            <img src="https://cdn.forbes.com.mx/2021/03/Equinoccio-de-primavera-1-1-scaled-e1615912644731-640x360.jpg" onclick="cambiarImagen(this)" alt="Primavera">
+        </div>
+    </div>
+
+    <script>
+        function cambiarImagen(imagenPequena) {
+            const imagenGrande = document.getElementById('imagenGrande');
+            const tempSrc = imagenGrande.src;
+            const tempAlt = imagenGrande.alt;
+
+            imagenGrande.src = imagenPequena.src;
+            imagenGrande.alt = imagenPequena.alt;
+
+            imagenPequena.src = tempSrc;
+            imagenPequena.alt = tempAlt;
+        }
+    </script>
+</body>
+</html>
